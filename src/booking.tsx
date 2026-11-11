@@ -585,4 +585,10 @@ export function Booking() {
               className="button secondary"
             >
               Save draft
- 
+            </button>
+          </div>
+        </aside>
+      </form>
+    </>
+  )
+}

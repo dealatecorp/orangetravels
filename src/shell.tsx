@@ -383,20 +383,18 @@ export function Shell() {
               <button
                 type="button"
                 className="profile"
-                aria-label={`${initials} ${state.settings.operator} Workspace admin, profile and settings`}
                 aria-expanded={menu === 'profile'}
                 onClick={() => {
                   setMenu(menu === 'profile' ? null : 'profile')
                   setSearchOpen(false)
                 }}
               >
-                <span className="avatar" aria-hidden="true">
-                  {initials}
-                </span>
+                <span className="avatar">{initials}</span>
                 <span className="profile-label">
                   <strong>{state.settings.operator}</strong>
                   <small>Workspace admin</small>
                 </span>
+                <span className="sr-only">Profile and settings</span>
                 <ChevronDown size={12} />
               </button>
               {menu === 'profile' && (

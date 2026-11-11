@@ -218,10 +218,10 @@ export const prettyDate = (
   date: string,
   options?: Intl.DateTimeFormatOptions,
 ) =>
-  new Date(`${date.slice(0, 10)}T12:00:00`).toLocaleDateString(
-    'en-IN',
-    options ?? { day: 'numeric', month: 'short', year: 'numeric' },
-  )
+  new Date(date.length === 10 ? `${date}T12:00:00+05:30` : date).toLocaleDateString('en-IN', {
+    ...(options ?? { day: 'numeric', month: 'short', year: 'numeric' }),
+    timeZone: 'Asia/Kolkata',
+  })
 export const round = (value: number) => Math.round(value * 100) / 100
 export const subtotal = (c: Charges) =>
   c.freight + c.handling + c.delivery + c.other - c.discount
@@ -587,4 +587,5 @@ export function shipmentMatches(
     shipment.reference,
     origin,
     destination,
-  ].some((value) => value?.toLowerCase().includes(que
+  ].some((value) => value?.toLowerCase().includes(query.trim().toLowerCase()))
+}

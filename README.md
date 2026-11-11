@@ -4,7 +4,7 @@ CargoOS is a responsive logistics operations website. The workspace starts with 
 
 ## Run locally
 
-Use Node.js 24 or later.
+Tested on Node.js 24.
 
 ```powershell
 npm ci
@@ -12,6 +12,10 @@ npm run dev
 ```
 
 Open [CargoOS](http://127.0.0.1:5173/). `npm run build` creates the static site in `dist`. Configure your static host to serve `index.html` on routes such as `/shipments/:lr` and `/track/:lr`.
+
+## Deploy on Vercel
+
+Import the GitHub repository and build from its root. `vercel.json` selects Vite and handles direct links to bookings, shipment details, and tracking. The site uses Node.js 24 at build time and requires no environment variables. Set `CARGOOS_BASE_URL` to the deployment URL to run the same Playwright tests against the hosted site.
 
 ## Try a shipment
 

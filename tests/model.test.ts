@@ -5,10 +5,15 @@ import {
   book,
   chargeable,
   newItem,
+  prettyDate,
   seed,
   total,
   transition,
 } from '../src/model'
+
+test('shipment events display the calendar date in India Standard Time', () => {
+  assert.equal(prettyDate('2026-11-10T21:00:00Z'), prettyDate('2026-11-11'))
+})
 
 test('pricing uses the larger of volumetric and actual package weight', () => {
   assert.equal(
